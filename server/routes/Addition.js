@@ -19,6 +19,7 @@ router.post('/bounded_project', function(req, res, next) {
       'staff': req.body.staff,
       'keywords': req.body.keywords
     })
+    res.send("Completed")
   } catch(e) {
     console.log(e);
   }
@@ -33,6 +34,7 @@ router.post('/volunteer', function(req, res, next) {
       'availability': req.body.availability,
       'skillsets': req.body.skillsets
     })
+    res.send("Completed")
   } catch(e) {
     console.log(e);
   }
@@ -45,6 +47,7 @@ router.post('/staff', function(req, res, next) {
       'email': req.body.email,
       'phone': req.body.phone
     })
+    res.send("Completed")
   } catch(e) {
     console.log(e);
   }
@@ -58,6 +61,7 @@ router.post('/donor', function(req, res, next) {
       'email': req.body.email,
       'phone': req.body.phone
     })
+    res.send("Completed")
   } catch(e) {
     console.log(e);
   }
@@ -72,6 +76,7 @@ router.post('/ongoing_project', function(req, res, next) {
       'volunteers': req.body.volunteers,
       'keywords': req.body.keywords
     })
+    res.send("Completed")
   } catch(e) {
     console.log(e);
   }
@@ -88,6 +93,7 @@ router.post('/sponsor', function(req, res, next) {
       bounded_projects.push({'project':currProj.id, 'amount': currProj.amount})
     }
   }
+  
   try{
     Sponsor.create({
       'name': req.body.name,
@@ -95,6 +101,7 @@ router.post('/sponsor', function(req, res, next) {
       'bounded_projects': bounded_projects,
       'ongoing_projects': unbound_projects
     })
+    res.send("Completed")
   } catch(e) {
     console.log(e);
   }

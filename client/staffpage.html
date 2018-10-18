@@ -44,11 +44,6 @@
                 </div>
             </div>
         </form>
-
-        <ul class="nav navbar-nav navbar-right">
-            <li><a hred="#">Log In</a></li>
-        </ul>
-
     </div><!-- /.navbar-collapse -->
 </nav>
 
@@ -75,52 +70,69 @@
         </span>
 
         <div id="create" style="display:none;">
-            <form action="" method="post" onsubmit="return validation()">
                 <div class="login-form" style="margin: 50px auto; max-width: 500px;">
                     <h3 style="text-align: center; width: 100%; margin-bottom: 25px;">Create a new event</h3>
 
                     <div class="form-group">
-                        <input type="text" class="form-control login-field" value="" placeholder="Event Name" name="event_name" id="1">
+                        <input type="text" class="form-control login-field" value="" placeholder="Event Name" name="name" id="name">
                         <label class="login-field-icon fui-new" for="event-name"></label>
                     </div>
+
                     <div class="form-group">
-                        <input type="text" class="form-control login-field" value="" placeholder="Event Time" name="event_time" id="2">
+                        <input type="text" class="form-control login-field" value="" placeholder="Event Time" name="date" id="date">
                         <label class="login-field-icon fui-new" for="event-time"></label>
                     </div>
 
                     <div class="form-group">
-                        <input type="text" class="form-control login-field" value="" placeholder="Event Address" name="event_address" id="3">
+                        <input type="text" class="form-control login-field" value="" placeholder="Event Address" name="address" id="address">
                         <label class="login-field-icon fui-new" for="event-address"></label>
                     </div>
 
                     <div class="form-group">
-                        <input type="text" class="form-control login-field" value="" placeholder="Maximum number of volunteers" name="max_event_volunteers" id="4">
-                        <label class="login-field-icon fui-new" for="event-volunteers"></label>
+                        <textarea style="height: 200px; resize: none;" class="form-control login-field " placeholder="Brief Description" name="brief_description" id="brief_description"></textarea>
                     </div>
 
                     <div class="form-group">
-                        <input rows="10" cols="50" style="resize: vertical;" value="" class="form-control login-field" placeholder="Brief Description" name="brief_description" id="5"/>
+                        <textarea style="height: 200px; resize: none;" class="form-control login-field" placeholder="Full Description" name="full_description" id="full_description"></textarea>
                     </div>
 
                     <div class="form-group">
-                        <input type="text" class="form-control login-field" value="" placeholder="Event Volunteers" name="event_volunteers" id="6">
+                        <input type="text" class="form-control login-field" value="" placeholder="Event Volunteers" name="volunteers" id="volunteers">
                         <label class="login-field-icon fui-new" for="login-pass"></label>
                     </div>
 
                     <div class="form-group">
-                        <input type="text" class="form-control login-field" value="" placeholder="Event Staffs" name="event_staffs" id="7">
+                        <input type="text" class="form-control login-field" value="" placeholder="Keywords" name="keywords" id="keywords">
                         <label class="login-field-icon fui-new" for="login-pass"></label>
                     </div>
 
+                    <div class="form-group">
+                        <input type="text" class="form-control login-field" value="" placeholder="Event Staffs" name="staffs" id="staffs">
+                        <label class="login-field-icon fui-new" for="login-pass"></label>
+                    </div>
 
-                    <button type="submit" class="btn btn-primary btn-lg btn-block">Create</button>
+                    <button class="btn btn-primary btn-lg btn-block" onclick="postevent()">Create</button>
                 </div>
-            </form>
+
+            <script>
+                function postevent(){
+                    $.post("http://54.255.187.253:3000/addition/bounded_project", {
+                        'name': $('#name').val(),
+                        'brief_description': $('#brief_description').val(),
+                        'full_description': $('#full_description').val(),
+                        'address': $('#address').val(),
+                        'date': $('#date').val(),
+                        'volunteers': [$('#volunteers').val()],
+                        'staffs': [$('#staffs').val()],
+                        'keywords': [$('#keywords').val()]
+                    })
+                }
+            </script>
         </div>
 
         <div id="view" style="display:none;">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">
+                <li class="list-group-item" id="1">
                     Event Name: Go Campaign
                     <button style="float: right;" class="btn btn-embossed btn-primary" onclick="edit()">Edit</button>
                     <br> Time: Oct 16, 9am to 7pm
@@ -130,7 +142,7 @@
                     <br> Event Volunteers: Alex Tong
                     <br> Event Staffs: ABC Wong
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item" id="2">
                     Event Name: Go Campaign
                     <button style="float: right;" class="btn btn-embossed btn-primary" onclick="edit()">Edit</button>
                     <br> Time: Oct 16, 9am to 7pm
@@ -140,7 +152,7 @@
                     <br> Event Volunteers: Alex Tong
                     <br> Event Staffs: ABC Wong
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item" id="3">
                     Event Name: Go Campaign
                     <button style="float: right;" class="btn btn-embossed btn-primary" onclick="edit()">Edit</button>
                     <br> Time: Oct 16, 9am to 7pm
@@ -150,7 +162,7 @@
                     <br> Event Volunteers: Alex Tong
                     <br> Event Staffs: ABC Wong
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item" id="4">
                     Event Name: Go Campaign
                     <button style="float: right;" class="btn btn-embossed btn-primary" onclick="edit()">Edit</button>
                     <br> Time: Oct 16, 9am to 7pm
@@ -160,7 +172,7 @@
                     <br> Event Volunteers: Alex Tong
                     <br> Event Staffs: ABC Wong
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item" id="5">
                     Event Name: Go Campaign
                     <button style="float: right;" class="btn btn-embossed btn-primary" onclick="edit()">Edit</button>
                     <br> Time: Oct 16, 9am to 7pm
@@ -203,41 +215,42 @@
         $('#create').hide();
     }
 
+
     function validation() {
-        if (document.getElementById("1").value == "") {
-            alert("Please input your event name!");
-            document.getElementById("1").focus();
-            return false;
-        } else if (document.getElementById("2").value == "") {
-            alert("Please input your event time!");
-            document.getElementById("2").focus();
-            return false;
-        }
-        else if (document.getElementById("3").value == "") {
-            alert("Please input your event address!");
-            document.getElementById("3").focus();
-            return false;
-        }
-        else if (document.getElementById("4").value == "") {
-            alert("Please input your maximum number of volunteers!");
-            document.getElementById("4").focus();
-            return false;
-        }
-        else if (document.getElementById("5").value == "") {
-            alert("Please input your brief description!");
-            document.getElementById("5").focus();
-            return false;
-        }
-        else if (document.getElementById("6").value == "") {
-            alert("Please input your event volunteers!");
-            document.getElementById("6").focus();
-            return false;
-        }
-        else if (document.getElementById("7").value == "") {
-            alert("Please input your event staffs!");
-            document.getElementById("7").focus();
-            return false;
-        }
+//        if (document.getElementById("1").value == "") {
+//            alert("Please input your event name!");
+//            document.getElementById("1").focus();
+//            return false;
+//        } else if (document.getElementById("2").value == "") {
+//            alert("Please input your event time!");
+//            document.getElementById("2").focus();
+//            return false;
+//        }
+//        else if (document.getElementById("3").value == "") {
+//            alert("Please input your event address!");
+//            document.getElementById("3").focus();
+//            return false;
+//        }
+//        else if (document.getElementById("4").value == "") {
+//            alert("Please input your maximum number of volunteers!");
+//            document.getElementById("4").focus();
+//            return false;
+//        }
+//        else if (document.getElementById("5").value == "") {
+//            alert("Please input your brief description!");
+//            document.getElementById("5").focus();
+//            return false;
+//        }
+//        else if (document.getElementById("6").value == "") {
+//            alert("Please input your event volunteers!");
+//            document.getElementById("6").focus();
+//            return false;
+//        }
+//        else if (document.getElementById("7").value == "") {
+//            alert("Please input your event staffs!");
+//            document.getElementById("7").focus();
+//            return false;
+//        }
     }
 
     $(document).ready(function() {
@@ -291,6 +304,8 @@
             ]
         });
     });
+
+
 </script>
 </body>
 </html>

@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var additionRoutes = require('./routes/Addition');
+var modificationRoutes = require('./routes/Modification');
+var searchRoutes = require('./routes/Search');
 var getAllRoutes = require('./routes/GetAll');
 var indexRoutes = require("./routes/index");
 const mongoose = require("mongoose");
@@ -23,6 +25,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/", indexRoutes);
 app.use('/addition', additionRoutes);
+app.use('/modification', modificationRoutes);
+app.use('/search', searchRoutes);
 app.use('/getAll', getAllRoutes);
 
 // catch 404 and forward to error handler

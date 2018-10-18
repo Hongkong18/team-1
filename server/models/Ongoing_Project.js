@@ -14,7 +14,7 @@ const ongoing_project = new mongoose.Schema({
 		type: String,
 		required: "You must supply a full_description"
 	},
-	volunteer: [
+	volunteers: [
         {
             type: mongoose.Schema.ObjectId,
             ref: "Volunteer"

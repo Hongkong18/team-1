@@ -26,6 +26,12 @@ const bounded_projectSchema = new mongoose.Schema({
             type: Date
         }
 	},
+	volunteers: [
+        {
+            type: mongoose.Schema.ObjectId,
+            ref: "Volunteer"
+        }
+    ],
 	keywords: [String]
 });
 

@@ -32,7 +32,7 @@ router.post('/Donor', function (req, res,next){
         if(err){
           console.log(err);
         } else{
-            res.sender(allDonor);
+            res.send(allDonor);
             
         }
     })
@@ -46,7 +46,7 @@ router.post('/Sponsor', function (req, res,next){
         if(err){
           console.log(err);
         } else{
-            res.sender(allSponsor);
+            res.send(allSponsor);
             
         }
     })
@@ -61,7 +61,7 @@ router.post('/Bounded_Project', function (req, res,next){
         if(err){
           console.log(err);
         } else{
-            res.sender(allProjects);
+            res.send(allProjects);
             
         }
     })
@@ -75,7 +75,7 @@ router.post('/Ongoing_Project', function (req, res,next){
         if(err){
           console.log(err);
         } else{
-            res.sender(allProjects);
+            res.send(allProjects);
             
         }
     })

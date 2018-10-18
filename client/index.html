@@ -89,6 +89,164 @@
     </div>
 
 </div>
+    
+<div class="container">
+    <a href="#volunteer" class="btn btn-info" data-toggle="collapse">Volunteer Form</a>
+    <div id="volunteer" class="collapse">
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+            <div class="login-form" style="...">
+                <form class="form-horizontal" role="form">
+                    <div>
+                        <label>Volunteer Form</label>
+                    </div>
+                    <div class="form-group">
+                        <span class="name">Name:</span>
+                        <input type="text" name="" id="vol_name" placeholder="Input" class="form-control" value="" required="required">
+                    </div>
+                    <div class="form-group">
+                        <span class="email">Email:</span>
+                        <input type="email" name="" id="vol_email" placeholder="Input" class="form-control" value="" required="required">
+                    </div>
+                    <div class="form-group">
+                        <span class="phone">Phone:</span>
+                        <input type="phone" name="" id="vol_phone" placeholder="Input" class="form-control" value="" required="required">
+                    </div>
+                    <div class="form-group">
+                        <span class="skills">Skills:</span>
+                        <label for="exampleFormControlSelect2">Skills (delect multiple with control pressed)</label>
+                        <select name="skillsets[]" multiple class="form-control" id="vol_skills">
+                            <option value="translation">Translation</option>
+                            <option value="fundraising">Fundraising</option>
+                            <option value="graphic design">Graphic Design</option>
+                            <option value="web design">Web Design</option>
+                            <option value="editorial">Editorial</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Specify your working time from</label>
+                        <input type="date" class="form-control" id="vol_Fdate" required="required">
+                        <input type="time" class="form-control" id="vol_Ftime" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Specify your working time to</label>
+                        <input type="date" class="form-control" id="vol_Tdate" required="required">
+                        <input type="time" class="form-control" id="vol_Ttime" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="CVFile">Select your CV</label>
+                        <input type="file" class="form-control" id="CVsubmission">
+                    </div>
+                    
+                    <button onclick='sendToVol()' class="btn btn-primary">Submit</button>
+                    
+                </form>
+            </div>
+        </div>
+        <script>
+            function sendToVol() {
+                let vol_fdate = $("#vol_Fdate")
+                let vol_ftime = $("#vol_Ftime")
+                let vol_fdatetime = vol_fdate + vol_ftime
+                let vol_tdate = $("#vol_Tdate")
+                let vol_ttime = $("#vol_Ttime")
+                let vol_tdatetime = vol_tdate + vol_ttime
+                let vol_availibility = []
+                var i = 0;
+                while (i<vol_tdatetime.length) {
+                    vol_availibility.push({key:vol_fdatetime[i], value:vol_tdatetime[i]});
+                    i++;
+                }
+                $.post("http://54.255.187.253:3000/addition/volunteer", {
+                'name': $("#vol_name").val(),
+                'email': $("#vol_email").val(),
+                'phone': $("#vol_phone").val(),
+                'skillsets':0,
+                'availability':vol_availibility.toISOString()
+            },function(result) {
+                    alert(result)
+                })
+        }
+        </script>
+    </div>
+    <a href="#donor" class="btn btn-info" data-toggle="collapse">Donor Form</a>
+    <div id="donor" class="collapse">
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+            <div class="login-form" style="...">
+                <form class="form-horizontal" role="form">
+                
+                    <div>
+                        <label>Donor Form</label>
+                    </div>
+                    <div class="form-group">
+                        <span class="name">Name:</span>
+                        <input type="text" name="" id="donor_name" placeholder="Input" class="form-control" value="" required="required">
+                    </div>
+                    <div class="form-group">
+                        <span class="email">Email:</span>
+                        <input type="email" name="" id="donor_email" placeholder="Input" class="form-control" value="" required="required">
+                    </div>
+                    <div class="form-group">
+                        <span class="phone">Phone number:</span>
+                        <input type="number" id="donor_phone" placeholder="Input" class="form-control" value="" required="required">
+                    </div>
+                    <div class="form-group">
+                        <span class="amount">Money you want to donate:</span>
+                        <input type="number" name="" id="donor_amount" placeholder="Input" class="form-control" value="" required="required">
+                    </div>
+                    
+                    <button onclick='sendToDonor()' class="btn btn-primary" >Submit</button>
+                </form>
+            </div>
+        </div>
+        <script>
+            function sendToDonor() {
+                alert("Your application received")
+                $.post("http://54.255.187.253:3000/addition/donor", {
+                'name': $("#donor_name").val(),
+                'email': $("#donor_email").val(),
+                'phone': parseInt($("#donor_phone").val()),
+                'amount': [parseInt($("#donor_amount").val())]
+            })   
+        }
+        </script>
+    </div>        
+    <a href="#organization" class="btn btn-info" data-toggle="collapse">Organization Form</a>
+    <div id="organization" class="collapse">    
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+            <div class="login-form" style="...">
+                <form action="" method="POST" class="form-horizontal" role="form">
+                    <div>
+                        <label>Organization Form</label>
+                    </div>
+                    <div class="form-group">
+                        <span class="name">Organization name:</span>
+                        <input type="text" name="" id="org_name" placeholder="Input" class="form-control" value="" required="required">
+                    </div>
+                    <div class="form-group">
+                        <span class="email">Organization email:</span>
+                        <input type="email" name="" id="org_email" placeholder="Input" class="form-control" value="" required="required">
+                    </div>
+                    <div class="form-group">
+                        <span class="service">Service wanted</span>
+                        <input type="text" name="" id="org_service" placeholder="Input" class="form-control" value="" required="required">
+                    </div>
+                    
+                    <button type="submit" onclick='sendToOrg' class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+        <script>
+            function sendToOrg() {
+                $.post("http://54.255.187.253:3000/addition/organization", {
+                'name': $("#org_name").val(),
+                'email': $("#org_email").val(),
+                'service': $("#org_service").val()
+            })   
+        }
+        </script>
+    </div>
+</div>
 
 </body>
 </html>

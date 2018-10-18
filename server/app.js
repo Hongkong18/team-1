@@ -3,8 +3,6 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mongoose = require('mongoose');
-
 var additionRoutes = require('./routes/Addition');
 var modificationRoutes = require('./routes/Modification');
 var indexRoutes = require("./routes/index");

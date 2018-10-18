@@ -16,9 +16,9 @@ router.post('/bounded_project', function(req, res, next) {
       'address': req.body.address,
       'date': req.body.date,
       'volunteers': req.body.volunteers,
+      'staff': req.body.staff,
       'keywords': req.body.keywords
     })
-    res.send("SUCCESS")
   } catch(e) {
     console.log(e);
   }

@@ -19,14 +19,14 @@ const bounded_projectSchema = new mongoose.Schema({
 		required: "Your supply an address"
 	},
 	date: {
-        type: JSON,
 		to: {
             type: Date
         },
         from: {
             type: Date
         }
-	}
+	},
+	keywords: [String]
 });
 
 // reviewSchema.pre("find", autopopulate);

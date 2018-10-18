@@ -21,7 +21,7 @@ const Sponsor = new mongoose.Schema({
         {
             project : {
                 type: mongoose.Schema.ObjectId,
-                ref: "Bounded_Project"
+                ref: "Ongoing_Project"
             },
             amount : {
                 type: Number

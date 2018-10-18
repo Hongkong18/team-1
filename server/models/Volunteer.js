@@ -13,7 +13,8 @@ const volunteer = new mongoose.Schema({
 	phone: {
 		type: Number,
 		required: "You must supply a contact"
-	},
+    },
+    skillset: [String],
 	availability: [
         {
             to: {

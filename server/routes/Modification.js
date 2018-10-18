@@ -10,17 +10,19 @@ var Sponsor = mongoose.model("../models/Sponsor");
 
   /* POST Bounded_Project modification. */
   router.post('/Bounded_Project', function(req, res, next) {
-  
+
   Bounded_Project.findOneAndUpdate()(
   {
-  	  'keywords': req.body.keywords
+  	  'name': req.body.name
   },
 
   {
-      'name': req.body.name,
+      'keywords': req.body.keywords,
       'brief_description': req.body.brief_description,
       'full_description': req.body.full_description,
-      'address': req.body.address
+      'address': req.body.address,
+      'date': req.body.date,
+      'volunteers': req.body.volunteers
   })
 
   /* POST Donor modification. */
@@ -47,16 +49,16 @@ var Sponsor = mongoose.model("../models/Sponsor");
       'volunteer': req.body.volunteer
   })
 
-  /* POST Ongoing_project modification. */
-  router.post('/Sponsor', function(req, res, next) {
+  /* POST Volnteer modification. */
+  router.post('/Volnteer', function(req, res, next) {
   Bounded_Project.findOneAndUpdate()(
   {
   	  'name': req.body.name
   },
 
   {
-	  'brief_description': req.body.brief_description,
-      'full_description': req.body.full_description,
+	  'email': req.body.email,
+      'phone': req.body.phone,
       'volunteer': req.body.volunteer
   })
 

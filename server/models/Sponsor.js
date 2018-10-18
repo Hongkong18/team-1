@@ -5,7 +5,9 @@ const Sponsor = new mongoose.Schema({
 	name: {
         type: String,
         required: "You must provide a name"
-	},
+    },
+    email: String,
+    phone: Number,
 	bounded_projects: [
         {
             project : {

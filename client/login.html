@@ -12,7 +12,10 @@
     <script src="static/flat-ui/dist/js/vendor/video.js"></script>
     <script src="static/flat-ui/dist/js/flat-ui.min.js"></script>
 </head>
+
+
 <body>
+
 <nav class="navbar navbar-inverse navbar-embossed" role="navigation" style="margin-bottom: 0; border-radius: 0;">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
@@ -22,8 +25,7 @@
     </div>
     <div class="collapse navbar-collapse" id="navbar-collapse-01">
         <ul class="nav navbar-nav navbar-left">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="staffpage.html">Staff</a></li>
+            <li><a href="#">Home</a></li>
             <li><a href="#">Events</a></li>
             <li><a href="#">Contact Us</a></li>
             <li><a href="#">Suggestions</a></li>
@@ -47,48 +49,46 @@
     </div><!-- /.navbar-collapse -->
 </nav>
 
+
+
+<p></p>
+<p></p>
+
 <div class="container">
-
-    <div style="padding: 10px; display: float">
-        <div class="text-left">
-            <div class="btn-group">
-                <button class="btn btn-inverse dropdown-toggle" type="button" data-toggle="dropdown">
-                    Sort By <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-inverse" role="menu">
-                    <li><button class="btn btn-inverse" type="button" data-sort="order:asc">Date</button></li>
-                </ul>
-            </div>
-        </div>
-        </br>
-
-        <div class="ui cards"  id="mix-wrapper" >
-
-            <!--<li class="card" data-order="">-->
-
-                <div class="content">
-                    <img class="right floated mini ui image" src="src/a.jpeg">
-                    <div class="header">
-                        Go Campaign
-                    </div>
-                    <div class="meta">
-                    </div>
-                    <div class="description">
-                        Time: Oct 16, 9am to 7pm
-                        <br>Venue: HKU
-                    </div>
-                </div>
-                <div class="extra content">
-                    <div class="ui buttons">
-                        <a href="" class="btn btn-embossed btn-primary">View</a>
-                    </div>
-                </div>
-            <!--</li>-->
-        </div>
-
-    </div>
-
-</div>
-
+    	<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-6">
+								<a href="#" class="active" id="login-form-link">Welcome! Please log in.</a>
+							</div>
+						</div>
+						<hr>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<form id="login-form" action="#" method="post" role="form">
+									<div class="form-group">
+										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+									</div>
+									<div class="form-group">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
-</html>

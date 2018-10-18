@@ -5,6 +5,7 @@ var Volunteer = require("../models/Volunteer");
 var Sponsor = require("../models/Sponsor");
 var Donor = require("../models/Donor");
 var Ongoing_Project = require("../models/Ongoing_Project");
+var Staff = require("../models/Staff");
 
 router.post('/bounded_project', function(req, res, next) {
   try{
@@ -18,6 +19,7 @@ router.post('/bounded_project', function(req, res, next) {
       
       'keywords': req.body.keywords
     })
+    res.send("SUCCESS")
   } catch(e) {
     console.log(e);
   }
@@ -37,11 +39,25 @@ router.post('/volunteer', function(req, res, next) {
   }
 });
 
+router.post('/staff', function(req, res, next) {
+  try{
+    Staff.create({
+      'name': req.body.name,
+      'email': req.body.email,
+      'phone': req.body.phone
+    })
+  } catch(e) {
+    console.log(e);
+  }
+});
+
 router.post('/donor', function(req, res, next) {
   try{
     Donor.create({
       'name': req.body.name,
-      'amount': req.body.amount
+      'amount': req.body.amount,
+      'email': req.body.email,
+      'phone': req.body.phone
     })
   } catch(e) {
     console.log(e);

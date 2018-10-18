@@ -6,7 +6,9 @@ const donor = new mongoose.Schema({
         type: String,
         required: "You must provide a name"
 	},
-	amount: [Integer]
+	email: String,
+	phone: Number,
+	amount: [Number]
 });
 
 // reviewSchema.pre("find", autopopulate);

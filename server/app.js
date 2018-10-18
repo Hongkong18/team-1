@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var additionRoutes = require('./routes/Addition');
 var modificationRoutes = require('./routes/Modification');
+var getAllRoutes = require('./routes/GetAll');
 var indexRoutes = require("./routes/index");
 const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/code_for_good");
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use("/", indexRoutes);
 app.use('/addition', additionRoutes);
 app.use('/modification', modificationRoutes);
+app.use('/getAll', getAllRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

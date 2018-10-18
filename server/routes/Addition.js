@@ -5,6 +5,7 @@ var Volunteer = require("../models/Volunteer");
 var Sponsor = require("../models/Sponsor");
 var Donor = require("../models/Donor");
 var Ongoing_Project = require("../models/Ongoing_Project");
+
 router.post('/bounded_project', function(req, res, next) {
   try{
     Bounded_Project.create({
@@ -27,7 +28,8 @@ router.post('/volunteer', function(req, res, next) {
       'name': req.body.name,
       'email': req.body.email,
       'phone': req.body.phone,
-      'availability': req.body.availability
+      'availability': req.body.availability,
+      'skillsets': req.body.skillsets
     })
   } catch(e) {
     console.log(e);
@@ -60,10 +62,22 @@ router.post('/ongoing_project', function(req, res, next) {
 });
 
 router.post('/sponsor', function(req, res, next) {
+  var bounded_projects = []
+  var unbound_projects = []
+  for (var proj = 0; proj < req.body.project; proj++) {
+    currProj = req.body.project[proj]
+    if (currProj.type == 'U') {
+      unbound_projects.push({'project':currProj.id, 'amount': currProj.amount})
+    } else if(currProj.type == 'B') {
+      bounded_projects.push({'project':currProj.id, 'amount': currProj.amount})
+    }
+  }
   try{
     Sponsor.create({
       'name': req.body.name,
-      'amount': req.body.amount
+      'amount': req.body.amount,
+      'bounded_projects': bounded_projects,
+      'ongoing_projects': unbound_projects
     })
   } catch(e) {
     console.log(e);

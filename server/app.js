@@ -6,6 +6,9 @@ var logger = require('morgan');
 var additionRoutes = require('./routes/Addition');
 var modificationRoutes = require('./routes/Modification');
 var indexRoutes = require("./routes/index");
+const mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost:27017/code_for_good");
+
 var app = express();
 
 // view engine setup

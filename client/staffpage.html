@@ -11,6 +11,11 @@
     <script src="static/bootstrap/dist/js/bootstrap-switch.js"></script>
     <script src="static/flat-ui/dist/js/vendor/video.js"></script>
     <script src="static/flat-ui/dist/js/flat-ui.min.js"></script>
+
+    <link href='static/calendar/fullcalendar.css' rel='stylesheet' />
+    <link href='static/calendar/fullcalendar.print.css' rel='stylesheet' media='print' />
+    <script src='static/calendar/moment.min.js'></script>
+    <script src='static/calendar/fullcalendar.min.js'></script>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-embossed" role="navigation" style="margin-bottom: 0; border-radius: 0;">
@@ -22,7 +27,8 @@
     </div>
     <div class="collapse navbar-collapse" id="navbar-collapse-01">
         <ul class="nav navbar-nav navbar-left">
-            <li><a href="#">Home</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="staffpage.html">Staff</a></li>
             <li><a href="#">Events</a></li>
             <li><a href="#">Contact Us</a></li>
             <li><a href="#">Suggestions</a></li>
@@ -169,7 +175,7 @@
 
     </div>
 
-    <div id = "calendar">
+    <div id = "calendar" style="display:none;" >
 
     </div>
 </div>
@@ -183,6 +189,7 @@
 
     function displaycalendar(){
         $('#calendar').show();
+
         $('#event').hide();
     }
 
@@ -244,66 +251,42 @@
             },
 
             <!--Default Date-->
-            defaultDate: '2015-02-12',
+            defaultDate: '2018-10-18',
             editable: true,
 
             <!--Event Section-->
             eventLimit: true, // allow "more" link when too many events
             events: [
                 {
-                    title: 'All Day Event',
+                    title: 'Event A',
                     start: '2018-10-16'
                 },
                 {
-                    title: 'Long Event',
+                    title: 'Go Campaign',
                     start: '2018-10-19',
                     end: '2018-10-25'
                 },
                 {
                     id: 999,
-                    title: 'Repeating Event',
+                    title: 'Networking Event',
                     start: '2018-10-24T16:00:00'
                 },
                 {
-                    id: 999,
-                    title: 'Repeating Event',
-                    start: '2018-10-23T16:00:00'
-                },
-                {
-                    title: 'Conference',
-                    start: '2015-10-11',
-                    end: '2015-02-13'
-                },
-                {
                     title: 'Meeting',
-                    start: '2015-02-12T10:30:00',
-                    end: '2015-02-12T12:30:00'
-                },
-                {
-                    title: 'Lunch',
-                    start: '2015-02-12T12:00:00'
-                },
-                {
-                    title: 'Meeting',
-                    start: '2015-02-12T14:30:00'
+                    start: '2018-10-25T14:30:00'
                 },
                 {
                     title: 'Happy Hour',
-                    start: '2015-02-12T17:30:00'
+                    start: '2018-11-14T17:30:00'
                 },
                 {
                     title: 'Dinner',
-                    start: '2015-02-12T20:00:00'
+                    start: '2018-12-03T20:00:00'
                 },
                 {
                     title: 'Birthday Party',
-                    start: '2015-02-13T07:00:00'
+                    start: '2018-12-05T07:00:00'
                 },
-                {
-                    title: 'Click for Google',
-                    url: 'http://google.com/',
-                    start: '2015-02-28'
-                }
             ]
         });
     });

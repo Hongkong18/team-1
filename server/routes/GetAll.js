@@ -89,10 +89,10 @@ router.post('/Projects', function (req, res, next){
       for (var proj = 0; proj < req.body.project; proj++) {
         currProj = req.body.project[proj]
         if (currProj.type == 'U') {
-          unbound_projects.push({'name':currProj.name '_id':currProj.id, 'type': 'Ongoing_Project' })
+          unbound_projects.push({'name':currProj.name, '_id':currProj.id, 'type': 'Ongoing_Project' })
         }
         else if(currProj.type == 'B') {
-          bounded_projects.push({'name':currProj.name '_id':currProj.id, 'type': 'Bounded_Project' })
+          bounded_projects.push({'name':currProj.name, '_id':currProj.id, 'type': 'Bounded_Project' })
         }
       }
 

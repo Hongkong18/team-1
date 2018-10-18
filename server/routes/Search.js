@@ -21,7 +21,7 @@ router.post('/events', async function(req, res, next) {
         console.log(all_val);
         console.log(bounded_result);
         console.log(unbounded_result);
-        return unbounded_result;
+        res.send(unbounded_result);
     } catch(e) {
         console.log(e);
         return;
@@ -42,7 +42,7 @@ router.post('/search_skills_vol', async function(req, res, next) {
     const volunteers = await Volunteer.find({
       skillset: skillset
     });
-    return volunteers;
+    res.send(volunteers);
   } catch(e) {
     console.log(e);
   }
@@ -67,7 +67,7 @@ router.post('/search_available_vol', async function(req, res, next) {
       availability: {$elemMatch: {to: {"$lte": to_date}, from: {"$gte": from_date}}}
     });
     console.log(volunteers);
-    return volunteers;
+    res.send(volunteers);
   } catch (e) {
     console.log(e);
   }
